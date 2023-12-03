@@ -1,6 +1,7 @@
 package com.example.vendas.dados;
 
 import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -14,22 +15,22 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
-public class Comprador {
+@NoArgsConstructor
+public class Cliente {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
-    private String senha;
+    private Double valorFinal;
+    
     @ManyToMany
-    private List<Pedidos> pedidos;
+    private List<Estoque> pedidos;
 
-    public Comprador(Comprador comprador) {
-        this.nome = comprador.getNome();
-        this.senha = comprador.getSenha();
-
+    public Cliente(Cliente cliente){
+        this.nome = cliente.nome;
     }
 
+  
 }
